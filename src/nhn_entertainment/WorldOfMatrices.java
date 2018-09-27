@@ -20,14 +20,12 @@ public class WorldOfMatrices {
 		int size = scanner.nextInt();
 		scanner.nextLine();
 		
-//		System.out.println("enter matrix lines: ");
 		int[][] matrix = new int[size][size];
 		for (int i = 0; i < size; i++) {
 			String row = scanner.nextLine();
 			String[] integerStrings = row.split(" ");
 			for (int k = 0; k < size; k++) {
 				matrix[i][k] = Integer.parseInt(integerStrings[k]);
-//				System.out.print( matrix[i][k]);
 			}
 		}
 		scanner.close();
@@ -36,9 +34,7 @@ public class WorldOfMatrices {
 			for (int k = 0; k < size; k++) {
 				if (matrix[i][k] == 1) {
 					int existingAreaID = getExistingAreaContainingPoint (i, k);
-//					System.out.println(existingAreaID);
 					if (existingAreaID > -1) {
-//						int areaID = determineExistingArea(i, k);
 						updateAreaSize(existingAreaID, i ,k);
 					} else {
 						foundNewArea(i, k);
@@ -66,19 +62,6 @@ public class WorldOfMatrices {
 		return;
 	}
 
-//	public static boolean isPartOfExistingArea(int row, int column) {
-//		for (Map.Entry<Integer, List<int[]>> area : areas.entrySet()) {
-//			
-//			for(int[] location: area.getValue()) {
-//				if(Math.abs(row - location[0]) + Math.abs(column - location[1]) == 1 ) {
-//					return true;
-//				}
-//			}
-//		}
-//		
-//		return false;
-//	}
-	
 	public static int getExistingAreaContainingPoint(int row, int column) {
 		for (Map.Entry<Integer, List<int[]>> area : areas.entrySet()) {
 			
@@ -92,12 +75,7 @@ public class WorldOfMatrices {
 		return -1;
 	}
 
-//	public static int determineExistingArea(int row, int column) {
-//
-//	}
-
 	public static void updateAreaSize(int areaID, int row, int column) {
-//		System.out.println(areaID);
 		areaMetadata.put(areaID, areaMetadata.get(areaID) + 1);
 		int[] newLocation = {row, column};
 		areas.get(areaID).add(newLocation);
