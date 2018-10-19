@@ -1,4 +1,4 @@
-package nhn_entertainment;
+package a.practice;
 
 import java.util.ArrayList;
 import java.util.Collections;
